@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <test name="ArticleDaoTest">
+        <parameter name="aid" value="100000008"/>
+        <parameter name="uid" value="1000000026"/>
+        <parameter name="userName" value="da"/>
+        <parameter name="sid" value="1000001256"/>
+        <parameter name="description" value="第一篇文章"/>
+        <parameter name="description1" value="第二篇文章"/>
+        <classes>
+            <class name="ssm.dao.ArticleDaoTest" />
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+</suite>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "ssm.dao.ArticleDao">
+    <!--public int createarticle(Article article);-->
+    <insert id="createarticle" parameterType="ssm.entity.Article" useGeneratedKeys="true" keyProperty="aid">
+        insert
+        into `article`(uid,username,sid,description)
+        values (#{uid},#{username},#{sid},#{description})
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="aid">
+            SELECT LAST_INSERT_ID() AS  sid
+        </selectKey>
+    </insert>
+    <!--public List<Article> getArticleBySid(@Param("sid") int sid);-->
+    <select id="getArticleBySid" resultType="ssm.entity.Article">
+        select *
+        from `article`
+        where sid = #{sid}
+    </select>
+    <!--public List<Article> getArticleByUid(@Param("uid") int uid);-->
+    <select id="getArticleByUid" resultType="ssm.entity.Article">
+        select *
+        from `article`
+        where uid = #{uid}
+    </select>
+    <!--public List<Article> getArticleBySidAndUid(@Param("sid") int sid,@Param("uid") int uid);-->
+    <select id="getArticleBySidAndUid" resultType="ssm.entity.Article">
+        select *
+        from `article`
+        where uid = #{uid} and sid = #{sid}
+    </select>
+    <!--public int deleteArticle(@Param("aid") int aid);-->
+    <delete id="deleteArticle">
+        delete
+        from `article`
+        where aid = #{aid}
+    </delete>
+</mapper>

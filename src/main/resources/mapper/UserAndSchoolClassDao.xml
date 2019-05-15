@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "ssm.dao.UserAndSchoolClassDao">
+    <!--public int addClassUser(@Param("u_id") int u_id,@Param("s_id")int s_id,@Param("status") int status);-->
+    <insert id="addClassUser">
+    insert
+    into `UserAndSchoolClass`(uid,sid,status)
+    values (#{uid},#{sid},#{status})
+</insert>
+
+    <!--public int deleteClassUser(@Param("u_id") int u_id,@Param("s_id")int s_id);-->
+    <delete id="deleteClassUser">
+        delete
+        from `UserAndSchoolClass`
+        where uid = #{uid} and sid = #{sid}
+    </delete>
+
+    <!--public List<UserAndSchoolClass> getClassIDByUserID(@Param("uid") int uid);-->
+    <select id="getClassIDByUserID" resultType="ssm.entity.UserAndSchoolClass">
+        select *
+        from `UserAndSchoolClass`
+        where uid = #{uid}
+    </select>
+    <!--public List<UserAndSchoolClass> getUserIDByClassID(@Param("sid") int sid);-->
+    <select id="getUserIDByClassID" resultType="ssm.entity.UserAndSchoolClass">
+        select *
+        from `UserAndSchoolClass`
+        where sid = #{sid}
+    </select>
+    <!--public UserAndSchoolClass getBySidAndUid(int u_id,int s_id);-->
+    <select id="getBySidAndUid" resultType="ssm.entity.UserAndSchoolClass">
+        select *
+        from `UserAndSchoolClass`
+        where sid = #{sid} and uid = #{uid}
+    </select>
+    <!--public int deleteClassAllUser(@Param("sid")int sid);-->
+    <delete id="deleteClassAllUser">
+        delete
+        from `UserAndSchoolClass`
+        where sid = #{sid}
+    </delete>
+</mapper>

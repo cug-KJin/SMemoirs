@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "ssm.dao.ArticleimageDao">
+    <!--public int addimage(@Param("aid")int aid,@Param("articleimage")String articleimage);-->
+    <insert id="addimage">
+        insert
+        into articleimage(aid,articleimage)
+        values (#{aid},#{articleimage})
+    </insert>
+    <!--public int deleteimage(@Param("aid")int aid);-->
+    <delete id="deleteimage">
+        delete
+        from articleimage
+        where aid = #{aid}
+    </delete>
+    <!--public List<Articleimage> getImageByAid(@Param("aid")int aid);-->
+    <select id="getImageByAid" resultType="ssm.entity.Articleimage">
+        select *
+        from articleimage
+        where aid = #{aid}
+    </select>
+</mapper>

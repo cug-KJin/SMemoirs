@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <test name="SchoolClassDaoTest">
+        <parameter name="sid" value="1000001269"/>
+        <parameter name="sid1" value="1000001268"/>
+        <parameter name="address" value="北京大学"/>
+        <parameter name="year" value="1888"/>
+        <parameter name="classname" value="软工一班"/>
+        <parameter name="uid" value="1000000028"/>
+        <parameter name="password" value="zh1234"/>
+        <parameter name="description" value="没啥可说的"/>
+        <classes>
+            <class name="ssm.dao.SchoolClassDaoTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+</suite>

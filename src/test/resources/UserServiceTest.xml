@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <test name="UserServiceImplTest">
+        <parameter name="uid" value="1000000028"/>
+        <parameter name="username" value="hahazhang"/>
+        <parameter name="telphone" value="13016464660"/>
+        <parameter name="telphone1" value="13016464886"/>
+        <parameter name="password" value="123456"/>
+        <parameter name="password1" value="123458"/>
+        <parameter name="realname" value="张志涛"/>
+        <parameter name="sex" value="男"/>
+        <parameter name="userQQ" value="1621997090"/>
+        <parameter name="email" value="13016464668@163.com"/>
+        <parameter name="userwechat" value="zzt13016464660"/>
+        <parameter name="birthday" value="19970522"/>
+        <classes>
+            <class name="ssm.service.Impl.UserServiceImplTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+</suite>

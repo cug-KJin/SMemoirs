@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <test name="ArticleImageServiceTest">
+        <parameter name="aid" value="100000007"/>
+        <parameter name="aid1" value="100000005"/>
+        <parameter name="articleimage" value="http://localhost:8080/upload/userUploadPhoto/2.jpg"/>
+        <parameter name="articleimage1" value="http://localhost:8080/upload/userUploadPhoto/1.jpg"/>
+        <classes>
+            <class name="ssm.service.Impl.ArticleimageServiceImplTest" />
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+</suite>

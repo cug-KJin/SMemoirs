@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "ssm.dao.UsersDao">
+    <insert id="registerUser">
+        insert ignore into `Users`(username,password,telphone)
+        values (#{username},#{password},#{telphone})
+    </insert>
+    <select id="getUserByTelphone" resultType="ssm.entity.Users">
+        select *
+        from `Users`
+        where telphone=#{telphone};
+    </select>
+    <select id="checkLogin" resultType="ssm.entity.Users">
+        select *
+        from `Users`
+        where password = #{password} and telphone = #{telphone}
+    </select>
+    <!--updatePassword(@Param("telphone") ,@Param("password") );-->
+    <update id="updatePassword">
+        update `Users`
+        set password = #{password}
+        where telphone = #{telphone}
+    </update>
+    <!--editUserMessage(@Param("telphone"),@Param("realname"),@Param("sex"),@Param("userQQ") ,@Param("email"),@Param("userwechat") ,@Param("birthday"));-->
+    <update id="editUserMessage">
+        update `Users`
+        set realname = #{realname},username = #{username},sex = #{sex},userQQ = #{userQQ},email = #{email},userwechat = #{userwechat},birthday = #{birthday}
+        where telphone = #{telphone}
+    </update>
+    <!--updateUserimage(@Param("telphone") ,@Param("userimage") );-->
+    <update id="updateUserimage">
+        update `Users`
+        set userimage = #{userimage}
+        where telphone = #{telphone}
+    </update>
+    <!--public Users getUserByUID(@Param("uid") int uid);-->
+    <select id="getUserByUID" resultType="ssm.entity.Users">
+        select *
+        from `Users`
+        where uid = #{uid}
+    </select>
+</mapper>

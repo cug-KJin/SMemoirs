@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "ssm.dao.SchoolClassDao">
+    <!--int createClass(@Param("address"), @Param("year"), @Param("classname"), @Param("u_id"),-->
+    <!--@Param("password"), @Param("description"));-->
+    <insert id="createClass" parameterType="ssm.entity.SchoolClass" useGeneratedKeys="true" keyProperty="sid">
+        insert
+        into `SchoolClass`(address,year,classname,uid,password,description)
+        values (#{address},#{year},#{classname},#{uid},#{password},#{description})
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="sid">
+            SELECT LAST_INSERT_ID() AS  sid
+        </selectKey>
+    </insert>
+    <!--SchoolClass getClassByAddress(@Param("address") String address);-->
+    <select id="getClassByAddress" resultType="ssm.entity.SchoolClass">
+        select *
+        from `SchoolClass`
+        where address like '%${address}%'
+    </select>
+    <!--SchoolClass getClassByClassname( @Param("classname")String classname);-->
+    <select id="getClassByClassname" resultType="ssm.entity.SchoolClass">
+        select *
+        from `SchoolClass`
+        where classname like '%${classname}%'
+    </select>
+    <!--SchoolClass getClassByUID( @Param("u_id")int u_id);-->
+    <select id="getClassBySID" resultType="ssm.entity.SchoolClass">
+        select *
+        from `SchoolClass`
+        where sid = #{sid}
+    </select>
+    <!--int EditClass(@Param("u_id"),@Param("address"), @Param("year"), @Param("classname"), @Param("password"), @Param("description");-->
+    <update id="EditClass">
+        update `SchoolClass`
+        set address = #{address},year = #{year},classname = #{classname},password = #{password},description = #{description}
+        where sid = #{sid}
+    </update>
+    <!--int DeleteClassByUID(@Param("u_id")int u_id);-->
+    <delete id="DeleteClassBySID">
+        delete
+        from `SchoolClass`
+        where sid = #{sid}
+    </delete>
+</mapper>

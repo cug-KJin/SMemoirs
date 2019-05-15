@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <test name="UserAndSchoolClassDaoTest">
+        <parameter name="uid" value="1000000026"/>
+        <parameter name="uid1" value="1000000028"/>
+        <parameter name="sid" value="1000001242"/>
+        <parameter name="status1" value="2"/>
+        <parameter name="status2" value="1"/>
+        <classes>
+            <class name="ssm.dao.UserAndSchoolClassDaoTest" />
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+</suite>
